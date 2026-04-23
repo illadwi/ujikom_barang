@@ -23,9 +23,11 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Membuang data untuk tabel ujikom.barang: ~0 rows (lebih kurang)
+-- Membuang data untuk tabel ujikom.barang: ~1 rows (lebih kurang)
+INSERT INTO `barang` (`id`, `nama_barang`, `stok`, `harga`, `created_at`, `updated_at`) VALUES
+	(1, 'baju', 5, 100000, '2026-04-22 09:04:56', '2026-04-22 09:04:56');
 
 -- membuang struktur untuk table ujikom.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -37,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Membuang data untuk tabel ujikom.users: ~1 rows (lebih kurang)
+-- Membuang data untuk tabel ujikom.users: ~0 rows (lebih kurang)
 INSERT INTO `users` (`id`, `username`, `password`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '$2y$10$NVDNZkntErzw4/NIilEhkO30VBbhesbRmUDFeP96x6tmUSiayECBW', '2026-04-22 08:56:21', '2026-04-22 08:56:27');
 
