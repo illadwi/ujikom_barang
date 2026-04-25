@@ -29,6 +29,19 @@ CREATE TABLE IF NOT EXISTS `barang` (
 INSERT INTO `barang` (`id`, `nama_barang`, `stok`, `harga`, `created_at`, `updated_at`) VALUES
 	(1, 'baju', 5, 100000, '2026-04-22 09:04:56', '2026-04-22 09:04:56');
 
+-- membuang struktur untuk table ujikom.kategori
+CREATE TABLE IF NOT EXISTS `kategori` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama_kategori` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Membuang data untuk tabel ujikom.kategori: ~1 rows (lebih kurang)
+INSERT INTO `kategori` (`id`, `nama_kategori`, `created_at`, `updated_at`) VALUES
+	(1, 'Pakaian', '2026-04-25 03:43:16', '2026-04-25 03:43:18');
+
 -- membuang struktur untuk table ujikom.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,

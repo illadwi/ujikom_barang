@@ -6,13 +6,13 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
-$data = mysqli_query($koneksi, "SELECT * FROM barang");
+$data = mysqli_query($koneksi, "SELECT * FROM kategori");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Data Kategori</title>
 
     <style>
         body {
@@ -48,10 +48,6 @@ $data = mysqli_query($koneksi, "SELECT * FROM barang");
 
         .btn-tambah {
             background: #2ecc71;
-        }
-
-        .btn-tambah-kategori {
-            background: #c1cc2e;
         }
 
         .btn-logout {
@@ -106,33 +102,28 @@ $data = mysqli_query($koneksi, "SELECT * FROM barang");
 <div class="container">
 
     <div class="header">
-        <h2>Data Barang</h2>
+        <h2>Data Kategori</h2>
 
         <div>
-            <a href="tambah.php" class="btn btn-tambah">+ Barang</a>
-            <a href="kategori.php" class="btn btn-tambah-kategori">+ Kategori</a>
-            <a href="logout.php" class="btn btn-logout">Logout</a>
+            <a href="kategori_tambah.php" class="btn btn-tambah">+ Tambah</a>
+            <a href="dashboard.php" class="btn btn-logout">Kembali</a>
         </div>
     </div>
 
     <table>
         <tr>
             <th>ID</th>
-            <th>Nama Barang</th>
-            <th>Stok</th>
-            <th>Harga</th>
+            <th>Nama Kategori</th>
             <th>Aksi</th>
         </tr>
 
         <?php while ($d = mysqli_fetch_assoc($data)) { ?>
         <tr>
             <td><?= $d['id'] ?></td>
-            <td><?= $d['nama_barang'] ?></td>
-            <td><?= $d['stok'] ?></td>
-            <td>Rp <?= number_format($d['harga'], 0, ',', '.') ?></td>
+            <td><?= $d['nama_kategori'] ?></td>
             <td class="aksi">
-                <a href="edit.php?id=<?= $d['id'] ?>" class="btn btn-edit">Edit</a>
-                <a href="hapus.php?id=<?= $d['id'] ?>" class="btn btn-hapus" onclick="return confirm('Yakin hapus?')">Hapus</a>
+                <a href="kategori_edit.php?id=<?= $d['id'] ?>" class="btn btn-edit">Edit</a>
+                <a href="kategori_hapus.php?id=<?= $d['id'] ?>" class="btn btn-hapus" onclick="return confirm('Yakin hapus?')">Hapus</a>
             </td>
         </tr>
         <?php } ?>
